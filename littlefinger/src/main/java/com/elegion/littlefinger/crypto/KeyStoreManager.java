@@ -13,6 +13,7 @@ import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
+import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
 
 import javax.crypto.SecretKey;
@@ -59,6 +60,8 @@ class KeyStoreManager {
         try {
             mKeyStore.load(null);
             return mKeyStore.getKey(alias, null);
+        } catch (UnrecoverableKeyException e) {
+            throw e;
         } catch (GeneralSecurityException | IOException e) {
             throw new Exception("An exception happens while getting Key", e);
         }

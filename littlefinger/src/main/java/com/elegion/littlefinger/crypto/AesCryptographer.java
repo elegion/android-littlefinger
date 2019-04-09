@@ -13,6 +13,7 @@ import java.security.GeneralSecurityException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
+import java.security.UnrecoverableKeyException;
 import java.security.spec.InvalidParameterSpecException;
 
 import javax.crypto.BadPaddingException;
@@ -87,13 +88,17 @@ public class AesCryptographer {
 
     @NonNull
     private Cipher initDecodeCipher(String key, byte[] iv) throws Exception {
-        SecretKey secretKey = mKeyStoreManager.getSecretKey(key);
         try {
+            SecretKey secretKey = mKeyStoreManager.getSecretKey(key);
+
             Cipher cipher = Cipher.getInstance(TRANSFORMATION);
             cipher.init(Cipher.DECRYPT_MODE, secretKey, new IvParameterSpec(iv));
             return cipher;
-        } catch (KeyPermanentlyInvalidatedException e) {
+        } catch (KeyPermanentlyInvalidatedException | UnrecoverableKeyException e) {
             mKeyStoreManager.deleteKey(key);
+            if (e instanceof UnrecoverableKeyException) {
+                throw new KeyPermanentlyInvalidatedException("An exception happens while getting Key", e);
+            }
             throw e;
         } catch (GeneralSecurityException e) {
             throw new Exception("An exception happens while initializing Cipher", e);

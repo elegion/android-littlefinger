@@ -17,6 +17,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
+import java.security.UnrecoverableKeyException;
 import java.security.spec.MGF1ParameterSpec;
 import java.security.spec.X509EncodedKeySpec;
 
@@ -86,14 +87,17 @@ public class RsaCryptographer {
     }
 
     private Cipher initDecodeCipher(String key) throws Exception {
-        PrivateKey privateKey = mKeyStoreManager.getPrivateKey(key);
-
         try {
+            PrivateKey privateKey = mKeyStoreManager.getPrivateKey(key);
+
             Cipher cipher = Cipher.getInstance(TRANSFORMATION);
             cipher.init(Cipher.DECRYPT_MODE, privateKey);
             return cipher;
-        } catch (KeyPermanentlyInvalidatedException e) {
+        } catch (KeyPermanentlyInvalidatedException | UnrecoverableKeyException e) {
             mKeyStoreManager.deleteKey(key);
+            if (e instanceof UnrecoverableKeyException) {
+                throw new KeyPermanentlyInvalidatedException("An exception happens while getting Key", e);
+            }
             throw e;
         } catch (GeneralSecurityException e) {
             throw new Exception("Exception while initializing decoding cipher", e);
