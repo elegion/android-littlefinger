@@ -6,7 +6,6 @@ import android.os.Build;
 import android.security.keystore.KeyGenParameterSpec;
 import android.security.keystore.KeyPermanentlyInvalidatedException;
 import android.security.keystore.KeyProperties;
-import android.support.annotation.NonNull;
 import android.util.Log;
 
 import java.security.GeneralSecurityException;
@@ -22,6 +21,8 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
+
+import androidx.annotation.NonNull;
 
 /**
  * @author Azret Magometov

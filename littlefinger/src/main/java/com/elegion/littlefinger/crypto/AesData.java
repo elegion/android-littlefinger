@@ -1,7 +1,8 @@
 package com.elegion.littlefinger.crypto;
 
-import android.support.annotation.NonNull;
 import android.util.Base64;
+
+import androidx.annotation.NonNull;
 
 /**
  * @author Azret Magometov

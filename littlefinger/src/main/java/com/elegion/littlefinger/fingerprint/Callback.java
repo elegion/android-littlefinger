@@ -1,6 +1,6 @@
 package com.elegion.littlefinger.fingerprint;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 /**
  * @author Azret Magometov

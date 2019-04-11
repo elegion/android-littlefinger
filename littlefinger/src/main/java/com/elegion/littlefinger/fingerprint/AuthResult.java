@@ -1,8 +1,11 @@
 package com.elegion.littlefinger.fingerprint;
 
+import android.annotation.TargetApi;
 import android.hardware.fingerprint.FingerprintManager;
+import android.os.Build;
 import android.security.keystore.KeyPermanentlyInvalidatedException;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 /**
  * @author Azret Magometov
@@ -157,6 +160,7 @@ public class AuthResult {
         mData = data;
     }
 
+    @TargetApi(Build.VERSION_CODES.M)
     public boolean isKeyInvalidated() {
         return mState == State.EXCEPTION && mThrowable instanceof KeyPermanentlyInvalidatedException;
     }

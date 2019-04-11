@@ -1,8 +1,6 @@
 package com.elegion.littlefinger.crypto;
 
 import android.os.Build;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.util.Log;
 
 import java.io.IOException;
@@ -17,6 +15,9 @@ import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
 
 import javax.crypto.SecretKey;
+
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 
 /**
  * @author Azret Magometov
