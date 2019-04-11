@@ -1,26 +1,26 @@
-package com.elegion.littlefinger;
+package com.elegion.library.littlefinger;
 
 import android.content.Context;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
 
-import com.elegion.littlefinger.crypto.AesCryptographer;
-import com.elegion.littlefinger.crypto.CryptoAlgorithm;
-import com.elegion.littlefinger.crypto.Purpose;
-import com.elegion.littlefinger.crypto.RsaCryptographer;
-import com.elegion.littlefinger.fingerprint.AuthResult;
-import com.elegion.littlefinger.fingerprint.Callback;
-import com.elegion.littlefinger.fingerprint.CancelCallback;
-import com.elegion.littlefinger.fingerprint.FingerprintManagerHelper;
-import com.elegion.littlefinger.fingerprint.State;
+import com.elegion.library.littlefinger.crypto.AesCryptographer;
+import com.elegion.library.littlefinger.crypto.CryptoAlgorithm;
+import com.elegion.library.littlefinger.crypto.Purpose;
+import com.elegion.library.littlefinger.crypto.RsaCryptographer;
+import com.elegion.library.littlefinger.fingerprint.AuthResult;
+import com.elegion.library.littlefinger.fingerprint.Callback;
+import com.elegion.library.littlefinger.fingerprint.CancelCallback;
+import com.elegion.library.littlefinger.fingerprint.FingerprintManagerHelper;
+import com.elegion.library.littlefinger.fingerprint.State;
 
 import javax.crypto.Cipher;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import static com.elegion.littlefinger.crypto.Purpose.DECODE;
-import static com.elegion.littlefinger.crypto.Purpose.ENCODE;
+import static com.elegion.library.littlefinger.crypto.Purpose.DECODE;
+import static com.elegion.library.littlefinger.crypto.Purpose.ENCODE;
 
 /**
  * @author Azret Magometov

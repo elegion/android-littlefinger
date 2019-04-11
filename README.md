@@ -10,7 +10,7 @@ LittleFinger предназначен для упрощения работы с�
 
 Через gradle - зависимость
 ```groovy 
-implementation 'com.elegion.littlefinger:littlefinger:0.9.0'
+implementation 'com.elegion.library.littlefinger:littlefinger:0.9.0'
 ```
 
 ## Пример использования

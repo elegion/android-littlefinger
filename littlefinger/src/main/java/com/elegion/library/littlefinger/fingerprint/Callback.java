@@ -1,4 +1,4 @@
-package com.elegion.littlefinger.fingerprint;
+package com.elegion.library.littlefinger.fingerprint;
 
 import androidx.annotation.NonNull;
 

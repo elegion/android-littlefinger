@@ -1,4 +1,4 @@
-package com.elegion.littlefinger.crypto;
+package com.elegion.library.littlefinger.crypto;
 
 /**
  * @author Azret Magometov

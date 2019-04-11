@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.elegion.littlefinger" >
+    package="com.elegion.library.littlefinger" >
 
     <uses-permission android:name="android.permission.USE_FINGERPRINT" />
 </manifest>

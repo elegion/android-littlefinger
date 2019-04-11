@@ -1,4 +1,4 @@
-package com.elegion.littlefinger.crypto;
+package com.elegion.library.littlefinger.crypto;
 
 import android.util.Base64;
 
